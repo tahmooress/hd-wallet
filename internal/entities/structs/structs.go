@@ -1,7 +1,6 @@
 package structs
 
 import (
-	"crypto/ecdsa"
 	"math/big"
 )
 
@@ -10,7 +9,18 @@ type PubKey struct {
 	Y *big.Int
 }
 
-type Wallet struct {
-	PrivateKey *ecdsa.PrivateKey
-	PublicKey  *PubKey
+type ExtendedPrivateKey struct {
+	PrivateKey []byte
+	ChainCode  [32]byte
+}
+
+type ExtendedPubKey struct {
+	*PubKey
+	ChainCode [32]byte
+}
+
+type Address []byte
+
+type MasterKey struct {
+	RootPrivateKey []byte
 }

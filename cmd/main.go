@@ -12,7 +12,8 @@ import (
 
 func main() {
 	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("already have wallet? type 'yes' to go to next step to import it,\notherwise enter any key to generate your recovery phrase")
+	fmt.Println("already have wallet? type 'yes' to go to next step to import it,\n" +
+		"otherwise enter any key to generate your recovery phrase")
 	fmt.Println("------------------------------------------------------------------------------------------")
 
 	answer, err := reader.ReadString('\n')

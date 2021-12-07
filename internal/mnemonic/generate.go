@@ -47,8 +47,8 @@ func GenerateMnemonic(size int) (string, error) {
 	return strings.TrimRight(mnemonic, " "), nil
 }
 
-func SeedFromMnemonic(mnemonicWords []byte) [64]byte {
-	q := pbkdf2.Key(mnemonicWords, nil, 2048, 64, sha512.New)
+func SeedFromMnemonic(mnemonicWords, password []byte) [64]byte {
+	q := pbkdf2.Key(mnemonicWords, password, 2048, 64, sha512.New)
 
 	var re [64]byte
 

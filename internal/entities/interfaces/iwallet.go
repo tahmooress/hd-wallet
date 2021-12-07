@@ -1,12 +1,9 @@
 package interfaces
 
-import (
-	"bitcoin-wallet/internal/entities/structs"
-	"io"
-)
+import "bitcoin-wallet/internal/entities/structs"
 
 type IWallet interface {
-	GenerateKeyPair(reader io.Reader) (*structs.Wallet, error)
-	//Balance() (float64, error)
-	//Transfer() error
+	Transfer(Amount uint64, address []byte) error
+	Receive() structs.Address
+	Balance() uint64
 }
